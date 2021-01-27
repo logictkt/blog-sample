@@ -48,6 +48,7 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener_web', '~> 1.0'
+  gem 'annotate'
 end
 
 group :test do
