@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include DeviseCode
 
+  has_one_attached :image
 
   has_many :notes, dependent: :destroy
 

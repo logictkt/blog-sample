@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     root to: "home#index"
     resources :notes, expect: [:show]
+    resource :avatars, only: [:edit, :update]
   end
 
   resources :notes, only: [:index, :show]

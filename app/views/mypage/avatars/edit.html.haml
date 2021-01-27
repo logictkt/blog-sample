@@ -1,0 +1,7 @@
+%h2 アイコン設定
+
+= form_with model: current_user, url: mypage_avatars_path, method: :put do |f|
+  .field
+    = f.label :image
+    = f.file_field :image
+  = f.submit

@@ -1,3 +1,11 @@
 ここマイページ
 
 = link_to '記事一覧', mypage_notes_path
+
+%h3 アイコン
+- if current_user.image.attached?
+  = image_tag current_user.image.variant(resize:'200x200').processed
+- else
+  アイコン未設定
+
+= link_to 'アイコンを設定する', edit_mypage_avatars_path
