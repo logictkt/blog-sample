@@ -1,9 +1,9 @@
 = form_with model: [:mypage, @note] do |f|
-  .field
+  .form-group
     = f.label :title
-    = f.text_field :title, required: true
-  .field
+    = f.text_field :title, required: true, class: 'form-control'
+  .form-group
     = f.label :content
     = f.rich_text_area :content, required: true
 
-  = f.submit
+  = f.submit class: 'btn btn-primary'
