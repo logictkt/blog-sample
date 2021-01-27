@@ -8,4 +8,8 @@ class Note < ApplicationRecord
   validates :title, presence: true
 
   scope :posted, -> { order(created_at: :desc) }
+
+  def owner?(target_user)
+    user == target_user
+  end
 end

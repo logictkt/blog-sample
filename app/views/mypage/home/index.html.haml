@@ -7,6 +7,8 @@
       = render 'shared/note', note: note
   %ul.nav.mb-2.justify-content-end
     %li.nav-item
+      = link_to '記事作成', new_mypage_note_path, class: 'nav-link'
+    %li.nav-item
       = link_to '記事一覧', mypage_notes_path, class: 'nav-link'
 
 %h3 アイコン

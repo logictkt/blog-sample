@@ -1,15 +1,6 @@
 %h2 記事一覧
 
-= link_to '新規作成',  new_mypage_note_path
-
-%ul
-  - @notes.each do |note|
-    %li
-      %dl
-        %dt タイトル
-        %dd= link_to note.title, note_path(note)
-        %dt アクション
-        %dd
-          %ul
-            %li= link_to '編集', edit_mypage_note_path(note)
-            %li= link_to '削除', mypage_note_path(note), method: :delete, data: { confirm: '削除しますか ?' }
+%section.mt-4
+  .row.mt-4
+    - current_user.notes.posted.each do |note|
+      = render 'shared/note', note: note, action: true
