@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resource :avatars, only: [:edit, :update]
   end
 
-  resources :notes, only: [:index, :show]
+  resources :notes, only: [:index, :show] do
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

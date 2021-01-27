@@ -1,0 +1,5 @@
+= form_with model: [@note, @comment] do |f|
+  .field
+    = f.label :content
+    = f.text_area :content
+  = f.submit
