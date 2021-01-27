@@ -1,5 +1,7 @@
 = form_with model: [@note, @comment] do |f|
-  .field
+  .form-group
     = f.label :content
-    = f.text_area :content
-  = f.submit
+    = f.text_area :content, class: 'form-control'
+
+  = f.submit class: 'btn btn-primary'
+

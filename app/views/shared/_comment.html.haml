@@ -13,4 +13,4 @@
         %li.nav-item
           = link_to '編集', edit_note_comment_path(comment.note, comment), class: 'nav-link'
         %li.nav-item
-          = link_to '削除', edit_note_comment_path(comment.note, comment), class: 'nav-link', method: :delete, data: { confirm: '削除しますか？' }
+          = link_to '削除', note_comment_path(comment.note, comment), class: 'nav-link', method: :delete, data: { confirm: '削除しますか？' }
