@@ -4,4 +4,4 @@
   %dt 作者
   %dd= link_to @note.user.name, user_path(@note.user)
 
-= simple_format @note.body
+= @note.content
