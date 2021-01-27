@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   namespace :mypage do
     root to: "home#index"
+    resources :notes, expect: [:show]
   end
+
+  resources :notes, only: [:index, :show]
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

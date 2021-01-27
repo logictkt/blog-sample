@@ -1,0 +1,9 @@
+= form_with model: [:mypage, @note] do |f|
+  .field
+    = f.label :title
+    = f.text_field :title, required: true
+  .field
+    = f.label :body
+    = f.text_area :body, required: true
+
+  = f.submit
