@@ -4,7 +4,7 @@
       %strong.d-inline-block.mb-2.text-primary
         - if note.user.image.attached?
           = image_tag note.user.image.variant(resize:'30x30').processed, class: 'rounded-circle mr-2'
-        = note.user.name
+        = link_to note.user.name, user_path(note.user)
       %h3.mb-0
         = link_to note.title, note_path(note), class: 'text-dark'
       .mb-1.text-muted= l note.created_at
