@@ -5,9 +5,9 @@
     %svg.bd-placeholder-img.mr-3{"aria-label" => "Generic placeholder image", :focusable => "false", :height => "144", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "144", :xmlns => "http://www.w3.org/2000/svg"}
       %title Generic placeholder image
       %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
-  .media-body
+  .media-body.ml-2
     %h5.mt-0= user.name
     %p
       %span.mr-2 最後の記事 :
-      = extract(user.notes.posted.first).truncate(50)
+      = extract(user.notes.posted.first).truncate(20)
     = link_to 'この人のページへ', user_path(user), class: 'stretched-link'

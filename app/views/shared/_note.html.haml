@@ -3,7 +3,7 @@
     .card-body.d-flex.flex-column.align-items-start
       %strong.d-inline-block.mb-2.text-primary
         - if note.user.image.attached?
-          = image_tag current_user.image.variant(resize:'200x200').processed, class: 'rounded-circle mr-2'
+          = image_tag current_user.image.variant(resize:'30x30').processed, class: 'rounded-circle mr-2'
         = note.user.name
       %h3.mb-0
         = link_to note.title, note_path(note), class: 'text-dark'
