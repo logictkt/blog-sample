@@ -1,0 +1,16 @@
+%li.media
+  - if comment.user.image.attached?
+    = image_tag comment.user.image.variant(resize:'64x64').processed, class: 'rounded-circle mr-3'
+  - else
+    %svg.bd-placeholder-img.mr-3{"aria-label" => "Placeholder: 64x64", :focusable => "false", :height => "64", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "64", :xmlns => "http://www.w3.org/2000/svg"}
+      %title Placeholder
+      %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+  .media-body
+    %h5.mt-0.mb-1= comment.user.name
+    = simple_format comment.content
+    - if comment.owner?(current_user)
+      %ul.nav.justify-content-end
+        %li.nav-item
+          = link_to '編集', edit_note_comment_path(comment.note, comment), class: 'nav-link'
+        %li.nav-item
+          = link_to '削除', edit_note_comment_path(comment.note, comment), class: 'nav-link', method: :delete, data: { confirm: '削除しますか？' }

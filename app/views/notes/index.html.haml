@@ -1,12 +1,7 @@
 %h2 記事一覧
 
-%ul
+.row.mt-4
   - @notes.each do |note|
-    %li
-      %dl
-        %dt 作者
-        %dd= link_to note.user.name, user_path(note.user)
-        %dt タイトル
-        %dd= link_to note.title, note_path(note)
+    = render 'shared/note', note: note
 
 = paginate @notes

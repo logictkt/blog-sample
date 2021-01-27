@@ -1,26 +1,18 @@
 %h2= @note.title
 
-%dl
-  %dt 作者
-  %dd= link_to @note.user.name, user_path(@note.user)
+.row.mt-4
+  .col.mb-4.text-right
+    %b 作者 :
+    = link_to @note.user.name, user_path(@note.user)
 
-= @note.content
+.shadow-none.p-3.mb-5.bg-light.rounded
+  = @note.content
 
 %h3 コメント
+%ul.nav.mb-2
+  %li.nav-item
+    = link_to 'コメントを書く', new_note_comment_path(@note), class: 'nav-link'
 
-= link_to 'コメントを書く', new_note_comment_path(@note)
-
-%ul
+%ul.list-unstyled
   - @note.comments.posted.each do |comment|
-    %ul
-      %dl
-        %dt 作者
-        %dd= link_to comment.user.name, user_path(comment.user)
-        %dt コメント
-        %dd= simple_format comment.content
-        - if comment.owner?(current_user)
-          %dt アクション
-          %dd
-            %ul
-              %li= link_to '編集', edit_note_comment_path(@note, comment)
-              %li= link_to '削除', note_comment_path(@note, comment), method: :delete, data: { confirm: '削除しますか?' }
+    = render 'shared/comment', comment: comment
