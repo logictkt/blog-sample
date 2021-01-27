@@ -6,4 +6,6 @@ class Note < ApplicationRecord
   has_rich_text :content
 
   validates :title, presence: true
+
+  scope :posted, -> { order(created_at: :desc) }
 end

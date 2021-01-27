@@ -1,4 +1,10 @@
-%h1 Home#index
+:ruby
+  notes = Note.posted.limit(11)
+  first_note = notes.first
+  last_notes = notes.drop(1)
 
-%h2 ユーザー一覧
-= link_to '一覧', users_path
+= render 'menu'
+= render 'shared/large_note', note: first_note
+.row.mb-2
+  - last_notes.each do |note|
+    = render 'shared/note', note: note

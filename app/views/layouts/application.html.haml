@@ -8,10 +8,11 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'layouts/header'
-    - if notice
-      %p.notice= notice
-    - if alert
-      %p.alert= alert
+    .container
+      = render 'layouts/header'
+      - if notice
+        %p.notice= notice
+      - if alert
+        %p.alert= alert
 
-    = yield
+      = yield

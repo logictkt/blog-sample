@@ -1,0 +1,11 @@
+.jumbotron.p-3.p-md-5.text-white.rounded.bg-dark
+  .col-md-12.px-0
+    %h1.display-4.font-italic= note.title
+    %p.lead.my-3= extract(note).truncate(40)
+    %p.lead.my-3.text-right
+      %span.pr-1 create by
+      - if note.user.image.attached?
+        = image_tag current_user.image.variant(resize:'200x200').processed, class: 'rounded-circle mr-2'
+      = note.user.name
+    %p.lead.mb-0
+      = link_to '続きを読む', note_path(note), class: 'text-white font-weight-bold'
