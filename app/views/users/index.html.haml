@@ -1,9 +1,8 @@
 %h2 ユーザー一覧
 
-.mt-4
-  .row
-    - @users.each do |user|
-      = render 'shared/user', user: user
+.row.mt-4
+  - @users.each do |user|
+    = render 'shared/user', user: user
 
 = paginate @users
 
